@@ -628,7 +628,7 @@ input[data-error]::after {
 
 }
 
-@media (max-width: 740px) {
+/* @media (max-width: 740px) {
   .hero-section.responsive {
     margin-top: 16.5%;
   }
@@ -638,7 +638,7 @@ input[data-error]::after {
   .hero-section.responsive {
     margin-top: 17%;
   }
-}
+} */
 
 @media screen and (max-width: 540px) {
   .topnav a {
