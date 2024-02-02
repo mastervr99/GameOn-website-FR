@@ -139,6 +139,7 @@ var close = document.querySelector('.close');
 close.addEventListener('click', function() {
   document.querySelector('.bground').style.display = 'none';
   is_modal_open = false;
+  document.removeEventListener('click', closeModalOnClickOutside);
 });
 
 // Close form when form sent
@@ -147,21 +148,29 @@ close_sent_form.addEventListener('click', function() {
   document.querySelector('form').reset();
   is_form_submitted = false;
   is_modal_open = false;
+  document.removeEventListener('click', closeModalOnClickOutside);
   location.reload();
 });
 
 // Close modal when Escape is pressed
 document.addEventListener('keydown', function(event) {
-  if (is_modal_open && event.key === 'Escape') {
+  if (is_modal_open && (event.key === 'Escape' ||  event.key === ' ' )) {
+
+    // Prevent default action of spacebar
+    if (event.key === ' ') {
+      event.preventDefault();
+    }
 
     //check if form is submitted and reset form
     if(is_form_submitted){
-      document.querySelector('form').reset();
+      document.querySelector('form').reset(); 
       is_form_submitted = false;
+      location.reload();
     }
 
-    location.reload();
+    document.querySelector('.bground').style.display = 'none';
     is_modal_open = false;
+    document.removeEventListener('click', closeModalOnClickOutside);
   }
 });
 
@@ -173,9 +182,10 @@ function closeModalOnClickOutside(event) {
     if(is_form_submitted){
       document.querySelector('form').reset();
       is_form_submitted = false;
+      location.reload();
     }
 
-    location.reload();
+    document.querySelector('.bground').style.display = 'none';
     is_modal_open = false;
 
     document.removeEventListener('click', closeModalOnClickOutside);
