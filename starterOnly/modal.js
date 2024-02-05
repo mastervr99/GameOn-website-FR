@@ -154,12 +154,7 @@ close_sent_form.addEventListener('click', function() {
 
 // Close modal when Escape is pressed
 document.addEventListener('keydown', function(event) {
-  if (is_modal_open && (event.key === 'Escape' ||  event.key === ' ' )) {
-
-    // Prevent default action of spacebar
-    if (event.key === ' ') {
-      event.preventDefault();
-    }
+  if (is_modal_open && event.key === 'Escape') {
 
     //check if form is submitted and reset form
     if(is_form_submitted){
