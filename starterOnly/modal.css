@@ -102,7 +102,7 @@ footer {
 
 /* Modal form */
 
-.button {
+.form_button {
   background: #fe142f;
   margin-top: 0.5em;
   padding: 1em;
@@ -112,7 +112,7 @@ footer {
   font-size: 16px;
 }
 
-.button:hover {
+.form_button:hover {
   background: #3876ac;
 }
 
